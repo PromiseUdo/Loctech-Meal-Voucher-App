@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="/stylesheets/stars.css">
 
 <div class="row ">
-    <div class="col-6">
+    <div class="col-md-6">
         <div class="card mb-3">
             <div class="card-body">
               <h5 class="card-title"><%=mealTicket.ticket_id%></h5>
@@ -26,7 +26,7 @@
           </div>
 
     </div>
-    <div class="col-6">
+    <div class="col-md-6">
       <% if(currentStaff) { %> <!--display review form only when there is a current user-->
       <h2>Leave a Review</h2>
           <form action="/mealtickets/<%= mealTicket.ticket_id %>/reviews" method="POST" class="validated-form mb-3" novalidate>
