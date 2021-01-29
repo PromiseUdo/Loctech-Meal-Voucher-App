@@ -1,0 +1,20 @@
+<% layout('layouts/boilerplate')%>
+<link rel="stylesheet" href="/stylesheets/ticketIndex.css">
+
+    <h1>All Meal Tickets</h1>
+    <% for(let meal of mealTickets){ %> 
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= meal.ticket_id%> </h5>
+                        <p class="card-title"><%= meal.holder%> </p>
+                        <p class="card-title">
+                            <small class="text-muted"><%= meal.requestDate%></small>
+                        </p>
+                        <a href="/mealtickets/<%=meal.ticket_id%>" class="btn show-btn">View <%=meal.ticket_id%></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %> 

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <title>LOCTECH Meal Ticket App</title>
+</head>
+<!-- cover-container d-flex w-100 h-100 p-3 mx-auto flex-column -->
+<body class="home-body">
+    <div class="container mt-5">
+        <header class="header-main">
+
+            <!-- new stuff -->
+            <div class="row">
+                <div class="col-md-8">
+
+                    <img class="company-logo" src="images/loctech.png" alt="">
+                </div>
+                <div class="col-md-4 enter-links">
+                    
+                    <% if(!currentStaff) { %> 
+                        <a  href="/register" class="register-btn">Register</a>
+                        <a  href="/login" class="login-btn">Login</a>
+                        <% }else{ %>
+                        <a href="/mealtickets" class="home-btn">View All Meals</a>
+                        <a href="/mealtickets/new" class="home-btn">New Meal</a> 
+                        <a   href="/logout" class="logout-btn">Logout</a>
+                        <% } %> 
+
+                </div>
+              </div>
+            
+
+            <!-- new stuff -->
+            
+            
+        </header>
+
+
+
+
+
+        <main class="main-div">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 class="mb-5" ><a href="" class="typewrite" data-period="2000" data-type='[ "Welcome to your passport to chop!", "Have you eaten today?", "Jennifer just finished making eba o!", "One ticket for you today. Ready to eat?" ]'>
+                        <span class="wrap"></span>
+                      </a></h1>
+<!-- fgfg -->
+                    <form action="/login" method="POST" class="validated-form" novalidate >
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input class="form-control login-name" type="text" id="username" name="username" placeholder="username" autofocus required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input class="form-control login-pwd" type="password" id="password" name="password" placeholder="Password" required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn login-btn-form btn-block mb-3">Login</button>
+                          </div>
+                    
+                    </form>
+
+<!-- ilkk -->
+
+
+
+
+                    <p class="desc">Jump right in and get your Meal Ticket Id.<br>Drop a comment and tell us how you enjoyed your service at the canteen!</p>
+                    <!-- <a href="/mealtickets" class="btn btn-secondary btn-lg">View Meal Tickets</a> -->
+                </div>
+
+                <div class="col-md-6">
+                    <img class="floating" src="images/people_eating.png" alt="">
+
+
+                </div>
+
+            </div>
+
+            
+        </main>
+
+        <footer class="mt-auto text-center text-muted footer-text">
+            <p>&copy; 2021 LOCTECH Meal Ticketing App.<br> Developed by Promise Udo for LOCTECH</p>
+        </footer>   
+    </div>
+    <script src="/javascripts/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+</body>
+</html>

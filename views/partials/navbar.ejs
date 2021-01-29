@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark main-nav">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">LOCTECH Meal Ticket App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/mealtickets">Meal Tickets</a>
+          <a class="nav-link" href="/mealtickets/new">New Meal Ticket</a>
+          <a class="nav-link" href="/statistics">Stats</a>
+        </div>
+        <div class="navbar-nav move-right">
+          <% if(!currentStaff) { %> 
+            <a class="nav-link" href="/login" >Login</a>
+            <a class="nav-link" href="/register" >Register</a>
+          <% } else { %> 
+              <a href=""><img class="dark-mode" src="/images/brightness.png" alt=""></a>
+              <a class="nav-link" href="" >Hi <%= currentStaff.username %>!</a>
+              <a class="nav-link" href="/logout" >  Logout</a>
+          <% } %> 
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  

@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate') %> 
+<link rel="stylesheet" href="./stylesheets/login.css">
+
+<div class="container justify-content-center align-items-center mt-1">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <img src="images/loctech.png" alt="" class="company-logo">
+            <div class="card shadow">
+                <!-- <img src="https://images.pexels.com/photos/734983/pexels-photo-734983.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" class="card-img-top"> -->
+                <div class="card-body">
+                    <h5 class="card-title">Register</h5>
+                    <form action="/register" method="POST" class="validated-form" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input class="form-control" type="text" id="username" name="username" placeholder="username" required autofocus>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="email">Email</label>
+                            <input class="form-control" type="email" id="email" name="email" placeholder="Email" required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Password</label>
+                            <input class="form-control" type="password" id="password" name="password" placeholder="Password" required>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Role</label>
+                            <select class="form-control" name="role" id="role">
+                                <option value="admin">Admin</option>    
+                                <option value="staff">Other Staff</option>
+                            </select>
+                            <div class="valid-feedback">Looks good!</div>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn signup-btn">Sign Up</button>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+            <p class="mt-4 text-center">Already on the App? <a href="/login" class="fw-bold login-register-link">Login</a></p>
+        </div>
+    </div>
+</div>

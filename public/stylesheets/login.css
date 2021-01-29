@@ -1,0 +1,35 @@
+/* .card-img-top{
+    height: 250px;
+} */
+
+.login-btn, .signup-btn{
+    background-color: #FF611D;
+    height: 45px;
+    border-radius:20px;
+    color: #fff;
+}
+
+
+.login-btn:hover, .signup-btn:hover{
+    background-color: #cc4d17;
+
+ 
+    color: #fff;
+}
+
+.login-register-link{
+    color:#FF611D;
+    text-decoration: none;
+
+}
+
+
+.login-register-link:hover{
+    color:#FF611D;
+    text-decoration: underline;
+}
+
+.company-logo{
+    width:125px;
+    margin-bottom: 20px;
+}

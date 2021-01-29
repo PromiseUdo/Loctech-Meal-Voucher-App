@@ -1,0 +1,133 @@
+/* body{
+  background-color: #151b29;
+} */
+
+.month-bill, .month-bill2 h3{
+    text-align:center;
+    position:absolute;
+  }
+
+  h3{
+      color:antiquewhite;
+      font-size: 73px;
+  }
+
+  h2{
+        color:darkorange;
+  }
+/* 
+  h6{
+    color:antiquewhite;
+  } */
+
+  h5{
+    padding-top: 8px;
+    font-size:2.5rem;
+    /* color: antiquewhite; ; */
+  }
+
+
+.month-bill {
+    width:40%;
+    height:200px;
+    background:#FFF;
+    margin:40px auto;
+    background: #2b3f53;
+    padding: 15px;
+
+  }
+.effect
+{
+  position: relative;
+}
+.effect:before, .effect:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.effect:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+.request-box {
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12)
+  ;
+  
+    
+    
+    height: 370px;
+    /* width: 50%; */
+    margin: 100px auto;
+    background: white;
+    border-radius: 5px;
+    background-color:#00aa9d; 
+    transition: transform 0.8s;
+
+  }
+
+  .request-box:hover{
+    transform: translate(10px, 10px);
+  }
+
+  .billToday, .requestToday, .requestThisMonth{
+      padding: 20px;
+        display: inline-block;
+        height: 150px;
+        width: 100%;
+        background-color: black;
+        margin: 5px;
+        text-align:left;
+        transition:all 0.25s;
+        color: antiquewhite;
+
+  }
+
+  .billToday:hover, .requestToday:hover, .requestThisMonth:hover{
+    transform:translateY(-0.25em);
+    color: black;
+    background-color:#FFB80E;
+    
+  }
+
+  .otherDetails{
+      text-align: center;
+  }
+  .effect8 {
+    box-shadow: 0 8px 6px -6px black;
+  }
+
+.stats-container{
+  margin-bottom: 20px;
+}
+
+  /*tiny circles */
+
+

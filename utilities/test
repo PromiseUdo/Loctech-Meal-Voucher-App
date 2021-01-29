@@ -1,0 +1,75 @@
+NUMBER OF REQUEST PER DAY
+db.mealtickets.aggregate(
+    [
+        {
+            $group:{
+                _id:{month:{$month:"$requestDate"}, day:{$dayOfMonth:"$requestDate"}, year:{$year:"$requestDate"}},
+                count:{$sum:1}
+            }
+        }
+    ]
+)
+
+BILL PER DAY
+db.mealtickets.aggregate(
+    [
+        {
+            $group:{
+                _id:{month:{$month:"$requestDate"}, day:{$dayOfMonth:"$requestDate"}, year:{$year:"$requestDate"}},
+                count:{$sum:1 * 250}
+            }
+        }
+    ]
+)
+
+NUMBER OF REQUEST PER MONTH
+db.mealtickets.aggregate(
+    [
+        {
+            $group:{
+                _id:{month:{$month:"$requestDate"}},
+                count:{$sum:1}
+            }
+        }
+    ]
+)
+
+BILL PER MONTH
+db.mealtickets.aggregate(
+    [
+        {
+            $group:{
+                _id:{month:{$month:"$requestDate"}},
+                count:{$sum:1 * 250}
+            }
+        }
+    ]
+)
+
+NUMBER OF REQUEST PER STAFF
+const result = await MealTicket.aggregate(
+        [
+            {
+                        $group:
+                        {
+                            _id: "$owner",
+                            totalBillAmount:{$sum : 1}
+                        }
+                    }
+    ]
+    )
+
+
+BILL PER STAFFconst result = await MealTicket.aggregate(
+        [
+            {
+                        $group:
+                        {
+                            _id: "$owner",
+                            totalBillAmount:{$sum : 1 * 250}
+                        }
+                    }
+    ]
+    )
+
+

@@ -1,0 +1,63 @@
+<% layout('layouts/boilerplate') %> 
+<link rel="stylesheet" href="/stylesheets/statistics.css">
+
+
+<div class="container stats-container">
+    <div class="row">
+        
+        <div class="col col-lg-2 month-bill effect">
+            <div class="">
+                <h2>Bill This Month</h2>
+                <h3>₦<%= billThisMonth  %> </h3>
+            </div>           
+        </div>
+
+    </div>
+
+    <div class="row otherDetails">
+        <div class="col-sm">
+
+            <!-- <div class="otherDetails"> -->
+                <div class="billToday effect8">
+                    <h6>Bill Today</h6>
+                    <% if(billForToday == ""){ %>
+                        <h5>₦0</h5>
+                    <% } else { %> 
+                    <h5>₦<%= billForToday %> </h5>
+                    <% } %> 
+                </div>
+        </div>
+        <div class="col-sm">
+            <div class="requestToday effect8">
+                <h6>Request Today</h6>
+
+                <% if(todayRequest == ""){ %>
+                    <h5>0</h5>
+                <% } else { %> 
+                <h5><%= todayRequest %> </h5>
+                <% } %>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-sm">
+            <div class="requestThisMonth effect8">
+                <h6>Request this month</h6>
+                <h5><%= requestThisMonth %> </h5>
+
+            </div>
+
+        </div>
+            
+    </div>
+    
+</div>
+
+
+<script src="/javascripts/reloadStats.js"></script>
+
+
+
+
