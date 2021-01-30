@@ -57,7 +57,6 @@
           <% for(let review of mealTicket.reviews) { %> 
             <div class="card mb-3">
               <div class="mb-3 card-body">
-                <h5 class="card-title"><%= review.owner.username %></h5>
                 <p class="starability-result" data-rating="<%= review.rating %>">
                   Rated: <%= review.rating %>
                 </p>

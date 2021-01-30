@@ -8,7 +8,12 @@
         <div class="col col-lg-2 month-bill effect">
             <div class="">
                 <h2>Bill This Month</h2>
-                <h3>₦<%= billThisMonth  %> </h3>
+
+                <% if(billThisMonth == ""){ %>
+                    <h5>₦0</h5>
+                <% } else { %> 
+                <h5>₦<%= billThisMonth %> </h5>
+                <% } %> 
             </div>           
         </div>
 
@@ -45,8 +50,12 @@
         <div class="col-sm">
             <div class="requestThisMonth effect8">
                 <h6>Request this month</h6>
-                <h5><%= requestThisMonth %> </h5>
 
+                <% if(requestThisMonth == ""){ %>
+                    <h5>0</h5>
+                <% } else { %> 
+                <h5><%= requestThisMonth %> </h5>
+                <% } %>
             </div>
 
         </div>
