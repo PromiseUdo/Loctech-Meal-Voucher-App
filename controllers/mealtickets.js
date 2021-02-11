@@ -16,12 +16,9 @@ module.exports.renderNewForm = async(req, res) => {
 
 module.exports.createMealTicket = async (req, res)=>{
     const newMealTicket = new MealTicket({...req.body.mealticket, requestDate:req.requestDate});
-    // console.log(req.user.username,"HHHHHHHHHHHHHH");
     console.log(req.body.mealticket);
     newMealTicket.owner = req.user._id;
     await newMealTicket.save();
-    //send email here
-    // await sendEmail;
     const transporter = nodemailer.createTransport(smtpTransport({
         service: "gmail",
         host: "smtp.gmail.com",
@@ -39,11 +36,8 @@ module.exports.createMealTicket = async (req, res)=>{
     }
 
     await transporter.sendMail(mailOptions, function(error, info){
-        if(error){
-            console.log(error);
-        }else{
-            console.log("Email sent: ");
-        }
+        if(error) console.log(error); else console.log("Email sent: ");
+        
     });
     req.flash('success', 'Successfully created a new ticket');
     res.redirect(`/mealtickets/${newMealTicket.ticket_id}`);

@@ -19,9 +19,9 @@ const statisticRoutes = require('./routes/statistics');
 
 
 //establish connection to the database
-// mongoose.connect('mongodb://localhost:27017/loc-meal', {
+mongoose.connect('mongodb://localhost:27017/loc-meal', {
 
-mongoose.connect('mongodb+srv://admin-Promise:locmealpc6@cluster0.yb7gz.mongodb.net/loc-meal', {
+// mongoose.connect('mongodb+srv://admin-Promise:locmealpc6@cluster0.yb7gz.mongodb.net/loc-meal', {
     useNewUrlParser: true, 
     useCreateIndex:true,
     useUnifiedTopology: true,
