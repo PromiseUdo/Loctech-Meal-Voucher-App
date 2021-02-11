@@ -8,7 +8,7 @@ const mealtickets= require('../controllers/mealtickets');
 
 router.route('/')
     .get(catchAsync(mealtickets.index))
-    .post(isLoggedIn, validateMealTicket, hasEatenAlready, catchAsync(mealtickets.createMealTicket));
+    .post(isLoggedIn, validateMealTicket, catchAsync(mealtickets.createMealTicket));
 //go to the index page via controller
 
 router.get('/new', isLoggedIn, mealtickets.renderNewForm);
