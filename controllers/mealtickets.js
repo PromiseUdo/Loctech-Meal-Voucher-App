@@ -83,6 +83,28 @@ module.exports.deleteMealticket = async (req, res)=>{
     // await MealTicket.findOneAndDelete(id);
     await MealTicket.findOneAndDelete({ticket_id:id});
     // await MealTicket.findByIdAndDelete()
+
+    const transporter = nodemailer.createTransport(smtpTransport({
+        service: "gmail",
+        host: "smtp.gmail.com",
+        auth: {
+            user: "loctechmealapp@gmail.com",
+            pass: "locmealpudopc6"
+        }
+    }));
+
+    const mailOptions = {
+        from: "loctechmealapp@gmail.com",
+        to: "joy.okwu@loctech.ng, hope.israel@loctech.ng, jenzeal3@gmail.com",
+        subject:`${req.user.username} Deleted a Meal Ticket`,
+        html: `<b>Dear Admin,</b><br><br>${req.user.username} has deleted a Meal Ticket (s)he created with an Id: ${newMealTicket.ticket_id}<br><br>Best Regards,<br><i>Loctech Meal Ticketing App</i>`
+    }
+
+    await transporter.sendMail(mailOptions, function(error, info){
+        if(error) console.log(error); else console.log("Email sent: ");
+        
+    });
+
     req.flash('success', 'Successfully deleted meal ticket');
     res.redirect('/mealtickets');
 };
