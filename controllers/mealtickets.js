@@ -2,7 +2,7 @@ const MealTicket = require('../models/mealticket');
 const nodemailer = require('nodemailer');
 const smtpTransport = require("nodemailer-smtp-transport");
 
-
+const newMealTicket = "";
 
 module.exports.index = async (req, res)=>{
     
@@ -15,7 +15,8 @@ module.exports.renderNewForm = async(req, res) => {
 };
 
 module.exports.createMealTicket = async (req, res)=>{
-    const newMealTicket = new MealTicket({...req.body.mealticket, requestDate:req.requestDate});
+    newMealTicket = new MealTicket({...req.body.mealticket, requestDate:req.requestDate});
+
     console.log(req.body.mealticket);
     newMealTicket.owner = req.user._id;
     await newMealTicket.save();
