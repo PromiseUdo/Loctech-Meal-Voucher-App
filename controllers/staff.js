@@ -16,7 +16,7 @@ module.exports.register = async (req,res)=>{
             res.redirect('/register');
         }else{
             //check for Admin
-            if(((role == "admin") && (usernamePart == "joy.okwu")) || ((role == "admin") && (usernamePart == "hope.israel"))){
+            if(((role == "admin") && (usernamePart == "joy.okwu")) || ((role == "admin") && (usernamePart == "hope.israel")) || ((role == "admin") && (usernamePart == "jenzeal3"))){
 
                 const staff = new Staff({email, username, role});
                 const registeredStaff = await Staff.register(staff, password);
