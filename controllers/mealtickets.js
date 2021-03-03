@@ -2,7 +2,7 @@ const MealTicket = require('../models/mealticket');
 const nodemailer = require('nodemailer');
 const smtpTransport = require("nodemailer-smtp-transport");
 
-const newMealTicket = "";
+let newMealTicket = "";
 
 module.exports.index = async (req, res)=>{
     
