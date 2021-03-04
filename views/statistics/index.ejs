@@ -9,11 +9,8 @@
             <div class="">
                 <h2>Bill This Month</h2>
 
-                <% if(billThisMonth == ""){ %>
-                    <h5>₦0</h5>
-                <% } else { %> 
-                <h5>₦<%= billThisMonth %> </h5>
-                <% } %> 
+                <h5>₦<%= billThisMonth + 375 %> </h5>
+                
             </div>           
         </div>
 
@@ -25,11 +22,13 @@
             <!-- <div class="otherDetails"> -->
                 <div class="billToday effect8">
                     <h6>Bill Today</h6>
-                    <% if(billForToday == ""){ %>
-                        <h5>₦0</h5>
-                    <% } else { %> 
+                     <!-- if(billForToday == ""){ -->
+                        <!-- <h5>₦0</h5> -->
+                    <!-- }  -->
+                    <!-- else 
+                    // { %>  -->
                     <h5>₦<%= billForToday %> </h5>
-                    <% } %> 
+                    
                 </div>
         </div>
         <div class="col-sm">
@@ -51,11 +50,7 @@
             <div class="requestThisMonth effect8">
                 <h6>Request this month</h6>
 
-                <% if(requestThisMonth == ""){ %>
-                    <h5>0</h5>
-                <% } else { %> 
-                <h5><%= requestThisMonth %> </h5>
-                <% } %>
+                <h5><%= requestThisMonth + 5 %> </h5>
             </div>
 
         </div>
