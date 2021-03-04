@@ -1,18 +1,17 @@
 const MealTicket = require('../models/mealticket');
 const Staff = require('../models/staff');
 const ISODate = require("isodate");
+const mealticket = require('../models/mealticket');
 
     //get the current day's date
 const todayDate = new Date().getDate();
 const thisMonth = new Date().getMonth() + 1;
+const thisYear = new Date().getFullYear();
 let billThisMonth = '';
 let billForToday ='';
 let todayRequest = '';
 let requestThisMonth = '';
 let firstFive = {};
-// const allStaff = await MealTicket.find({}).populate('owner');
-// console.log(allStaff);
-
 
 module.exports.index = async(req, res)=>{
    
@@ -80,8 +79,11 @@ module.exports.index = async(req, res)=>{
                 }
             }
         ]
+
+        
     )
-    // console.log(billPerMonth);
+    console.log(billPerMonth);
+    
 
 
     const requestPerStaff = await MealTicket.aggregate(
@@ -95,16 +97,6 @@ module.exports.index = async(req, res)=>{
         ]
     )
 
-    // const billPerStaff = await MealTicket.aggregate(
-    //     [
-    //         {
-    //             $group:{
-    //                 _id: "$owner",
-    //                 totalBillAmount:{$sum : 1 * 250}
-    //             }
-    //         }
-    //     ]
-    // )
 
     const numOfTodayRequest = await MealTicket.aggregate(
         [
@@ -118,39 +110,7 @@ module.exports.index = async(req, res)=>{
     )
 
 
-// const results = await MealTicket.find({owner:req.user._id});
-// if(results.length == 0){
-//     console.log('This person has not eaten yet');
-// }else{
-//     for(oneResult of results){
-//         if(oneResult.requestDate.getDate() == todayDate){
-//             console.log(oneResult.requestDate.getDate(), 'oneresu date');
-//             console.log(todayDate, 'todayDate');
-//             console.log('True');
-//         }else{
-//             console.log(todayDate);
-//             console.log('False');
-//         }
-//         console.log(todayDate, 'todayDate');
-    
-    
-//     }
-
-
-// }
-
-
-
-
-
-
-// console.log(req.user._id,'jjh')
-
-
-
-
-
-    for(i = 0; i < numOfTodayRequest.length; i++){
+   for(i = 0; i < numOfTodayRequest.length; i++){
         if(numOfTodayRequest[i]._id.day==todayDate){
             todayRequest = numOfTodayRequest[i].count;
         }
@@ -180,8 +140,19 @@ module.exports.index = async(req, res)=>{
         if(billPerMonth[i]._id.month==thisMonth){
             billThisMonth = billPerMonth[i].count;
         }
-        // console.log(billThisMonth);
+
+        console.log(todayDate);
     }
+
+    //clear previous month data
+    // if(todayDate === 1){
+        mealticket.deleteMany({ requestDate: { $lt: new Date(thisYear, thisMonth-1, todayDate ) } }).then(function(){ 
+            console.log("Data deleted"); // Success 
+        }).catch(function(error){ 
+            console.log(error); // Failure 
+        })
+    // }
+    
 
 
     res.render('statistics/index', {firstFive, requestPerDay, billPerDay, requestThisMonth, billThisMonth, requestPerStaff, todayRequest, billForToday})

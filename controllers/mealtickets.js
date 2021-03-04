@@ -20,26 +20,26 @@ module.exports.createMealTicket = async (req, res)=>{
     console.log(req.body.mealticket);
     newMealTicket.owner = req.user._id;
     await newMealTicket.save();
-    const transporter = nodemailer.createTransport(smtpTransport({
-        service: "gmail",
-        host: "smtp.gmail.com",
-        auth: {
-            user: "loctechmealapp@gmail.com",
-            pass: "locmealpudopc6"
-        }
-    }));
+    // const transporter = nodemailer.createTransport(smtpTransport({
+    //     service: "gmail",
+    //     host: "smtp.gmail.com",
+    //     auth: {
+    //         user: "loctechmealapp@gmail.com",
+    //         pass: "locmealpudopc6"
+    //     }
+    // }));
 
-    const mailOptions = {
-        from: "loctechmealapp@gmail.com",
-        to: "joy.okwu@loctech.ng, hope.israel@loctech.ng, jenzeal3@gmail.com",
-        subject:`${req.user.username} Meal Ticket Request Id`,
-        html: `<b>Dear Admin,</b><br><br>${req.user.username} has generated a new Meal Ticket with an Id: ${newMealTicket.ticket_id}<br><br>Best Regards,<br><i>Loctech Meal Ticketing App</i>`
-    }
+    // const mailOptions = {
+    //     from: "loctechmealapp@gmail.com",
+    //     to: "joy.okwu@loctech.ng, hope.israel@loctech.ng, jenzeal3@gmail.com",
+    //     subject:`${req.user.username} Meal Ticket Request Id`,
+    //     html: `<b>Dear Admin,</b><br><br>${req.user.username} has generated a new Meal Ticket with an Id: ${newMealTicket.ticket_id}<br><br>Best Regards,<br><i>Loctech Meal Ticketing App</i>`
+    // }
 
-    await transporter.sendMail(mailOptions, function(error, info){
-        if(error) console.log(error); else console.log("Email sent: ");
+    // await transporter.sendMail(mailOptions, function(error, info){
+    //     if(error) console.log(error); else console.log("Email sent: ");
         
-    });
+    // });
     req.flash('success', 'Successfully created a new ticket');
     res.redirect(`/mealtickets/${newMealTicket.ticket_id}`);
 };
@@ -85,26 +85,26 @@ module.exports.deleteMealticket = async (req, res)=>{
     await MealTicket.findOneAndDelete({ticket_id:id});
     // await MealTicket.findByIdAndDelete()
 
-    const transporter = nodemailer.createTransport(smtpTransport({
-        service: "gmail",
-        host: "smtp.gmail.com",
-        auth: {
-            user: "loctechmealapp@gmail.com",
-            pass: "locmealpudopc6"
-        }
-    }));
+    // const transporter = nodemailer.createTransport(smtpTransport({
+    //     service: "gmail",
+    //     host: "smtp.gmail.com",
+    //     auth: {
+    //         user: "loctechmealapp@gmail.com",
+    //         pass: "locmealpudopc6"
+    //     }
+    // }));
 
-    const mailOptions = {
-        from: "loctechmealapp@gmail.com",
-        to: "joy.okwu@loctech.ng, hope.israel@loctech.ng, jenzeal3@gmail.com",
-        subject:`${req.user.username} Deleted a Meal Ticket`,
-        html: `<b>Dear Admin,</b><br><br>${req.user.username} has deleted a Meal Ticket (s)he created with an Id: ${newMealTicket.ticket_id}<br><br>Best Regards,<br><i>Loctech Meal Ticketing App</i>`
-    }
+    // const mailOptions = {
+    //     from: "loctechmealapp@gmail.com",
+    //     to: "joy.okwu@loctech.ng, hope.israel@loctech.ng, jenzeal3@gmail.com",
+    //     subject:`${req.user.username} Deleted a Meal Ticket`,
+    //     html: `<b>Dear Admin,</b><br><br>${req.user.username} has deleted a Meal Ticket (s)he created with an Id: ${newMealTicket.ticket_id}<br><br>Best Regards,<br><i>Loctech Meal Ticketing App</i>`
+    // }
 
-    await transporter.sendMail(mailOptions, function(error, info){
-        if(error) console.log(error); else console.log("Email sent: ");
+    // await transporter.sendMail(mailOptions, function(error, info){
+    //     if(error) console.log(error); else console.log("Email sent: ");
         
-    });
+    // });
 
     req.flash('success', 'Successfully deleted meal ticket');
     res.redirect('/mealtickets');
