@@ -146,7 +146,7 @@ module.exports.index = async(req, res)=>{
 
     //clear previous month data
     // if(todayDate === 1){
-        mealticket.deleteMany({ requestDate: { $lt: new Date(thisYear, thisMonth-1, todayDate ) } }).then(function(){ 
+        MealTicket.deleteMany({ requestDate: { $lt: new Date(thisYear, thisMonth-1, todayDate ) } }).then(function(){ 
             console.log("Data deleted"); // Success 
         }).catch(function(error){ 
             console.log(error); // Failure 
