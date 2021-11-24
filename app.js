@@ -9,6 +9,8 @@ const flash = require('connect-flash');
 const passport =  require('passport');
 const LocalStrategy = require('passport-local');
 const Staff = require('./models/staff');
+require('dotenv').config()
+
 // const Review = require('./models/review');
 
 //require the routes
@@ -21,7 +23,7 @@ const statisticRoutes = require('./routes/statistics');
 //establish connection to the database
 // mongoose.connect('mongodb://localhost:27017/loc-meal', {
 
-mongoose.connect('mongodb+srv://admin-Promise:locmealpc6@cluster0.yb7gz.mongodb.net/loc-meal', {
+mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true, 
     useCreateIndex:true,
     useUnifiedTopology: true,
@@ -53,7 +55,7 @@ app.use(methodOverride('_method')); //use method override for RESTful routes
 app.use(express.static(path.join(__dirname, 'public')));
 
 const sessionConfig = {
-    secret:'thisismysecretuyuyuyuyuyurt',
+    secret:process.env.SESSION_SECRET,
     resave:false,
     saveUninitialized:true,
     cookie:{
